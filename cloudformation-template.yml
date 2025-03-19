@@ -38,8 +38,8 @@ Resources:
       Handler: index.handler
       Role: !GetAtt LambdaExecutionRole.Arn
       Code:
-        S3Bucket: my-lambda-code-bucket  # ✅ Update with your actual S3 bucket name
-        S3Key: lambda.zip
+        S3Bucket: lambda-cicd-pipeline-pipelineartifactbucket-wfvp5ripdrwb  # ✅ Correct bucket name
+        S3Key: code/lambda.zip  # ✅ Correct key path inside the bucket
       MemorySize: 128
       Timeout: 10
 
