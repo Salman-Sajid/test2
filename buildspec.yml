@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      - npm install -g typescript
+      - npm install
+  build:
+    commands:
+      - tsc  # Compile TypeScript
+      - zip -r lambda.zip dist/ node_modules/  # Package the Lambda function
+artifacts:
+  files:
+    - lambda.zip
+    - cloudformation-template.yml
