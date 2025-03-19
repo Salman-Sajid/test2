@@ -88,6 +88,7 @@ Resources:
     Properties:
       RestApiId: !Ref ApiGateway
       StageName: prod
+    DependsOn: HelloMethod
 
   ### ✅ Lambda Permission for API Gateway ###
   LambdaApiPermission:
