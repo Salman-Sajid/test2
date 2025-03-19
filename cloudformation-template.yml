@@ -43,6 +43,20 @@ Resources:
       MemorySize: 128
       Timeout: 10
 
+      
+  HelloMethod:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      AuthorizationType: NONE
+      HttpMethod: GET  # ✅ Define an HTTP method (GET)
+      ResourceId: !Ref RootResource
+      RestApiId: !Ref ApiGateway
+      Integration:
+        Type: AWS_PROXY
+        IntegrationHttpMethod: POST
+        Uri: !Sub "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${HelloWorldLambda.Arn}/invocations"
+
+        
   ### ✅ API Gateway ###
   ApiGateway:
     Type: AWS::ApiGateway::RestApi
